@@ -8,12 +8,10 @@ import os
 def main():
     conn = psycopg2.connect(host="localhost", database="north", user="postgres", password="12345")
 
-    file_list = ["customers_data.csv", "employees_data.csv", "orders_data.csv"]
-
     try:
         with conn:
             with conn.cursor() as cur:
-                for file_name in file_list:
+                for file_name in os.listdir("north_data"):
                     file_path = os.path.join("north_data", file_name)
 
                     table_name = file_name.split("_")[0]
