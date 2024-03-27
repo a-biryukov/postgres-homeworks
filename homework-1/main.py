@@ -6,7 +6,7 @@ import os
 
 
 def main():
-    conn = psycopg2.connect(host="localhost", database="north", user="postgres", password="w1h9i9t1e")
+    conn = psycopg2.connect(host="localhost", database="north", user="postgres", password="12345")
 
     try:
         with conn:
