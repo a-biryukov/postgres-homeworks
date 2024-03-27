@@ -6,7 +6,7 @@ import os
 
 
 def main():
-    conn = psycopg2.connect(host="localhost", database="north", user="postgres", password="12345")
+    conn = psycopg2.connect(host="localhost", database="north", user="postgres", password="w1h9i9t1e")
 
     try:
         with conn:
@@ -21,8 +21,8 @@ def main():
                         file_reader = csv.reader(file, delimiter=",")
 
                         for row in file_reader:
-                            values = ("%s " * len(row)).strip().split()
-                            cur.execute(f"INSERT INTO {table_name} VALUES ({", ".join(values)})", tuple(row))
+                            values = ", ".join(("%s " * len(row)).strip().split())
+                            cur.execute(f"INSERT INTO {table_name} VALUES ({values})", tuple(row))
 
                     print(f"Таблица {table_name} заполнена")
     finally:
